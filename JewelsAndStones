@@ -1,0 +1,26 @@
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+      char[] Jparts= J.toCharArray();
+       //removing duplicates in Jparts
+      HashSet<Character> hset = new HashSet<Character>();  
+      for(int i =0; i<Jparts.length;i++){
+          hset.add(Jparts[i]);
+      }
+       //convert it back from set to array
+     Object[] obj= hset.toArray();
+     char[] resultArr= new char[obj.length];
+    for(int i =0;i<obj.length;i++){
+        resultArr[i]=(char)obj[i];
+    }
+      char[] Sparts= S.toCharArray();
+      int counter=0;
+      for(int i=0; i< resultArr.length;i++){
+          for(int j=0;j< Sparts.length;j++){
+              if(resultArr[i]==Sparts[j])
+                  counter++;
+          }
+      }
+      return counter;  
+  
+    }
+}
